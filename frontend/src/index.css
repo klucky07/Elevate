@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-
+body{
+  font-family:"SUSE", sans-serif ;
+}
 
  .animate-on-scroll {
           opacity: 0;
