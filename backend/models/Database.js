@@ -24,7 +24,27 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+const startupSchema = new mongoose.Schema({
+   name: {
+    type: String,
+    required: true,
+   
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  founders: [String],
+  foundingYear: Number,
+  funding: String,
+  investors: [String],
+  industry: String
+}, {
+  timestamps: true
+}
+);
 
 const User = mongoose.model('User', UserSchema);
+const Startups=mongoose.model('Startups',startupSchema);
 
-module.exports = User;
+module.exports ={ User,Startups};

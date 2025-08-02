@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/Database');
+const {User} = require('../models/Database');
 const router = express.Router();
 
 // Middleware to verify JWT token
@@ -23,7 +23,7 @@ const authenticateToken = (req, res, next) => {
 };
 
 // Register new user
-router.post('/register', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
 
@@ -36,7 +36,9 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ message: 'Password must be at least 6 characters long' });
         }
 
-      
+        if (!['investor', 'startup', 'admin'].includes(role)) {
+            return res.status(400).json({ message: 'Invalid role. Must be investor, startup, or admin' });
+        }
 
         // Check if user already exists
         const existingUser = await User.findOne({ email });
@@ -121,7 +123,7 @@ router.post('/login', async (req, res) => {
             name: user.name,
             email: user.email,
             role: user.role,
-         
+            createdAt: user.createdAt
         };
 
         res.json({

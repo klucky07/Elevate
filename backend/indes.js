@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const cors = require('cors');
 const express = require('express');
-const authRoutes = require('./routes/auth');
+
 require('dotenv').config();
+
+const authRoutes = require('./routes/auth');
+
+const dataRoutes=require('./routes/dataRoute')
 
 const app = express();
 
@@ -16,7 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/auth', authRoutes);
-
+app.use('/api/startups',dataRoutes)
 
  const PORT = process.env.PORT || 3000;
  app.listen(PORT, () => {

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-export const Button = ({ text, className = "" }) => {
+export const Button = ({ text, className = "",onClick }) => {
   const btnRef = useRef(null);
 
   const handleMouseMove = (e) => {
@@ -24,6 +24,7 @@ export const Button = ({ text, className = "" }) => {
       ref={btnRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={resetTransform}
+      onClick={onClick}
       className={`
         bg-gradient-to-r from-purple-600 to-pink-600 
         hover:from-purple-700 hover:to-pink-700 
