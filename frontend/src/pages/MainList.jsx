@@ -12,7 +12,7 @@ export const MainList = () => {
   useEffect(() => {
     const fetchStartups = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/startups/getdata");
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/startups/getdata`);
         setData(res.data);
       } catch (err) {
         console.error("Error fetching startups:", err);

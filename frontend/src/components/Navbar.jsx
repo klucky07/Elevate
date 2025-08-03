@@ -43,7 +43,7 @@ export const Navbar = () => {
       }
 
       // Fetch user profile
-      const response = await axios.get("http://localhost:3000/api/auth/profile", {
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -75,7 +75,7 @@ export const Navbar = () => {
       if (token) {
         try {
           await axios.post(
-            "http://localhost:3000/api/auth/logout",
+            ` ${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`,
             {},
             {
               headers: {

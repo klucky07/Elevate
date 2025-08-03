@@ -15,7 +15,7 @@ export const Auth = ({ type = "login",onSuccess }) => {
     console.log(form)
     const handleSignup = async () => {
         try {
-            const res = await axios.post("http://localhost:3000/api/auth/signup", form);
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/signup`, form);
             console.log("Signup successful", res.data);
             localStorage.setItem("token", res.data.token);
             onSuccess();
@@ -26,7 +26,7 @@ export const Auth = ({ type = "login",onSuccess }) => {
     };
     const handleLogin = async () => {
         try {
-            const res = await axios.post("http://localhost:3000/api/auth/login", form);
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, form);
             console.log("Login successful", res.data);
             localStorage.setItem("token", res.data.token);
             onSuccess();
