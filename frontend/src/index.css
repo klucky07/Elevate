@@ -295,11 +295,12 @@ body{
 
 /* Optional: Hover effect */
 .moving-line-border-card:hover .line {
-  animation-duration: 2s; /* Faster animation on hover */
+  animation-duration: 2s ; /* Faster animation on hover */
 }
 
 /* Optional: Different color scheme */
 .moving-line-border-card.colorful .line-top {
+  
   background: linear-gradient(to right, transparent, #ff6b6b, transparent);
 }
 

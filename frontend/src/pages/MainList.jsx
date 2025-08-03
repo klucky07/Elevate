@@ -1,6 +1,8 @@
 import axios from "axios";
 import { Navbar } from "../components/Navbar";
 import { useState, useEffect } from "react";
+import { Button } from "../components/Button";
+import { Loader2 } from "lucide-react";
 
 export const MainList = () => {
   const [data, setData] = useState([]);
@@ -26,7 +28,7 @@ export const MainList = () => {
     startup.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="flex flex-col justify-center items-center"> <Loader2/></div>;
 
   return (
     <div className="flex flex-col justify-center">
@@ -38,18 +40,18 @@ export const MainList = () => {
         </p>
       </div>
 
-      <div className="flex flex-col justify-center items-center w-full">
-        <div className="flex items-center gap-2 mb-4">
+    <div className="flex flex-col justify-center items-center w-full">
+        <div className="flex items-center relative gap-2 mb-4">
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search for startups..."
-            className="border-gray-200 border-2 px-6 bg-transparent text-black placeholder-gray-400 text-lg py-3 focus:outline-none rounded"
+            className="border-gray-200 border-2 px-10 bg-transparent text-black placeholder-gray-400 text-lg py-3 focus:outline-none rounded"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 text-gray-600"
+            className="w-6 h-6 text-gray-600 absolute ml-2"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -62,17 +64,22 @@ export const MainList = () => {
             />
           </svg>
         </div>
+        <div className="bg-gradient-to-br hover:scale-110 transition-all ease-in from-blue-400 to-purple-300 p-2 rounded-md">
+         <button onClick={()=>{
+          alert("comming soon")
+         }}>Add your startup +</button>
+        </div>
 
       <div className="flex flex-col gap-6 p-6 w-2/3 mx-auto">
   {filteredData.length > 0 ? (
     filteredData.map((startup) => (
       <div
         key={startup._id}
-        className="bg-gradient-to-r from-white via-gray-50 to-gray-100 border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
+        className=" border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
       >
         {/* Header Section */}
-        <div className="mb-4">
-          <h3 className="text-xl font-bold text-gray-900 mb-2">
+        <div className="mb-4 ">
+          <h3 className="text-2xl font-bold underline text-gray-600 mb-2">
             {startup.name}
           </h3>
           <p className="text-gray-600 leading-relaxed">
@@ -85,7 +92,7 @@ export const MainList = () => {
           {/* Founders */}
           {startup.founders && startup.founders.length > 0 && (
             <div>
-              <span className="font-medium text-gray-700">Founders:</span>
+              <span className="font-bold text-gray-700">Founders:</span>
               <p className="text-gray-600 mt-1">
                 {startup.founders.join(', ')}
               </p>
@@ -95,7 +102,7 @@ export const MainList = () => {
           {/* Founding Year */}
           {startup.foundingYear && (
             <div>
-              <span className="font-medium text-gray-700">Founded:</span>
+              <span className="font-bold text-gray-700">Founded:</span>
               <p className="text-gray-600 mt-1">{startup.foundingYear}</p>
             </div>
           )}
@@ -103,7 +110,7 @@ export const MainList = () => {
           {/* Industry */}
           {startup.industry && (
             <div>
-              <span className="font-medium text-gray-700">Industry:</span>
+              <span className="font-bold text-gray-700">Industry:</span>
               <p className="text-gray-600 mt-1">{startup.industry}</p>
             </div>
           )}
@@ -111,7 +118,7 @@ export const MainList = () => {
           {/* Funding */}
           {startup.funding && (
             <div>
-              <span className="font-medium text-gray-700">Funding:</span>
+              <span className="font-bold text-gray-700">Funding:</span>
               <p className="text-gray-600 mt-1">{startup.funding}</p>
             </div>
           )}
@@ -119,15 +126,23 @@ export const MainList = () => {
 
         {/* Investors */}
         {startup.investors && startup.investors.length > 0 && (
-          <div className="mt-4 pt-4 border-t border-gray-200">
+          <div className="mt-4 flex flex-col sm:flex-row justify-between  pt-4 border-t border-gray-200">
+            <div>
+
+            
             <span className="font-medium text-gray-700">Investors:</span>
             <p className="text-gray-600 mt-1">
               {startup.investors.join(', ')}
             </p>
+             </div>
+             <div className="mt-4 sm:mt-2 md:mt-0">
+<Button className="" text={ "Contact/Invest"}></Button>
+             </div>
+            
           </div>
         )}
 
-        {/* Timestamps */}
+        {/* Timestamps
         <div className="mt-4 pt-4 border-t border-gray-200 flex justify-between text-xs text-gray-500">
           {startup.createdAt && (
             <span>Created: {new Date(startup.createdAt).toLocaleDateString()}</span>
@@ -135,7 +150,7 @@ export const MainList = () => {
           {startup.updatedAt && (
             <span>Updated: {new Date(startup.updatedAt).toLocaleDateString()}</span>
           )}
-        </div>
+        </div> */}
       </div>
     ))
   ) : (

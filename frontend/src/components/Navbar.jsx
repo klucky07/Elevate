@@ -104,25 +104,30 @@ export const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center p-4 shadow-lg">
-      <div className="flex items-center gap-3">
+<Link to={'/'}>
+<div className="flex items-center gap-3">
+  
         <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center pulse-ring neon-glow">
           <TrendingUp className="w-6 h-6 text-white" />
         </div>
         <p className="font-bold text-2xl">Elevate</p>
-      </div>
+      </div></Link>
 
-      <div className="hidden md:flex gap-4">
+      <div className="hidden sm:flex gap-4">
         <Link to={"/"}>
       
         <span className="text-gray-600 underline-hover hover:text-purple-600 transition-all duration-300 hover:scale-110 relative group cursor-pointer">
           Home
         </span>  </Link>
-        <span className="text-gray-600 underline-hover hover:text-purple-600 transition-all duration-300 hover:scale-110 relative group cursor-pointer">
+       <a href="#About" >
+        <span  className="text-gray-600 underline-hover hover:text-purple-600 transition-all duration-300 hover:scale-110 relative group cursor-pointer">
           About
-        </span>
-        <span className="text-gray-600 underline-hover hover:text-purple-600 transition-all duration-300 hover:scale-110 relative group cursor-pointer">
+        </span></a>
+       <a href="#contact">
+         <span className="text-gray-600 underline-hover hover:text-purple-600 transition-all duration-300 hover:scale-110 relative group cursor-pointer">
           Contact
         </span>
+       </a>
       </div>
 
       <div className="relative" ref={authRef}>
@@ -145,7 +150,7 @@ export const Navbar = () => {
                   onClick={() => setShowAuth(!showAuth)}
                 />
                 {showAuth && (
-                  <div className="absolute top-16 right-0 z-50">
+                  <div className="absolute top-16 right-30 z-50">
                     <Auth onSuccess={handleLoginSuccess} />
                   </div>
                 )}

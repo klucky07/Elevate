@@ -27,8 +27,8 @@ export const Button = ({ text, className = "",onClick }) => {
       onClick={onClick}
       className={`
         bg-gradient-to-r from-purple-600 to-pink-600 
-        hover:from-purple-700 hover:to-pink-700 
-        px-8 py-3 rounded-md text-white font-semibold
+        hover:from-purple-700 hover:to-pink-700 px-4 py-1
+        sm:px-8 sm:py-3 rounded-md text-white font-semibold
         shadow-xl transition-transform duration-150 ease-out 
         neon-glow cursor-pointer will-change-transform
         ${className}

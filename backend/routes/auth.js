@@ -64,7 +64,7 @@ router.post('/signup', async (req, res) => {
         const token = jwt.sign(
             { userId: newUser._id, email: newUser.email, role: newUser.role },
             process.env.JWT_SECRET,
-            { expiresIn: '24h' }
+            { expiresIn: '2h' }
         );
 
         // Return user data (without password) and token

@@ -32,7 +32,7 @@ export const Home = () => {
           <h1 className="  stagger-1 text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"> we sky rocket your startup</h1>
         </div>
         <div className=" w-3/4 sm:w-3/4 md:w-1/2 lg:w-1/2 text-gray-700 text-lg">
-          <p>Strategic consulting and digital solutions that drive growth, optimize operations, and transform your vision into reality.</p>
+          <p>Bridging the gap between groundbreaking ideas and visionary investors.</p>
         </div>
         <div>
 
@@ -40,7 +40,7 @@ export const Home = () => {
         <div className=" gap-2 flex mt-4 flex-col md:flex-row justify-center">
           <Link to={"/main"}>
 
-            <Button text="Get Started" className="px-24" />
+            <Button text="Get Started" className="md:px-24" />
           </Link>
           <Button text="Learn More" className="gradient-text border-gray-200 border-2" />
         </div>
@@ -48,14 +48,14 @@ export const Home = () => {
 
 
       <div className="flex justify-center items-center gap-4 mt-20 p-2 flex-wrap">
-        <Boxinfo number={"100+"} description={"Projects Completed"} />
-        <Boxinfo number={"50+"} description={"Happy Clients"} />
+        <Boxinfo number={"100+"} description={"Startups listed"} />
+        <Boxinfo number={"50+"} description={"Investors"} />
         <Boxinfo number={"10+"} description={"Years of Experience"} />
       </div>
 
 
     </div>
-    <div className="section-divider"></div>
+    <div id="About" className="section-divider"></div>
     <div className="flex flex-col items-center justify-center text-center p-4 w-full gap-4">
       <div>
         <h1 className="  stagger-1 text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">Our Aim </h1>

@@ -37,7 +37,7 @@ export const Auth = ({ type = "login",onSuccess }) => {
     };
 
     return (
-        <div className=" rounded-4xl flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 p-2">
+        <div className=" rounded-3xl w-3/2  flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 p-1">
             <div className="bg-white/95 backdrop-blur-sm  rounded-3xl shadow-2xl p-8   ">
                 {/* Header */}
                 <div className="text-center mb-8">
